@@ -9,6 +9,8 @@ package crypto.protocoles;
  *
  * @author asus
  */
-public class Protocole {
+public interface Protocole {
+    
+    public void executer();
     
 }
