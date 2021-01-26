@@ -16,9 +16,9 @@ import java.util.HashMap;
 public class Univers {
     private HashMap<String, Cles> listeClesPubliques;
     private HashMap<String, Message> listeMessagesPublics;
-    private static Univers instance;
+    private static Univers instance = new Univers();
     
-    public Univers() {
+    private Univers() {
         this.listeClesPubliques = new HashMap<String, Cles>();
         this.listeMessagesPublics = new HashMap<String, Message>();
     }
@@ -27,7 +27,19 @@ public class Univers {
         return instance;
     }
     
-    public void addCles(String identifiant, Cles cles) {
-        
+    public static void addCles(String identifiant, Cles cles) {
+        instance.listeClesPubliques.put(identifiant, cles);
+    }
+    
+    public static Cles getCles(String identifiant) {
+        return instance.listeClesPubliques.get(identifiant);
+    }
+    
+    public static void addMessage(String identifiant, Message message) {
+        instance.listeMessagesPublics.put(identifiant, message);
+    }
+    
+    public static Message getMessage(String identifiant) {
+        return instance.listeMessagesPublics.get(identifiant);
     }
 }
