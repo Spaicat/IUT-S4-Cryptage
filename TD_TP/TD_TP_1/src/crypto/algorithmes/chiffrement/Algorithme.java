@@ -5,10 +5,19 @@
  */
 package crypto.algorithmes.chiffrement;
 
+import crypto.donnees.cles.Cles;
+import crypto.donnees.messages.Message;
+
 /**
  *
  * @author asus
  */
-public class Algorithme {
+public interface Algorithme {
+    String nom = "";
     
+    public String getNom();
+    public void setNom();
+    
+    public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees);
+    public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees);
 }
