@@ -16,7 +16,6 @@ public interface Algorithme {
     String nom = "";
     
     public String getNom();
-    public void setNom();
     
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees);
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees);
