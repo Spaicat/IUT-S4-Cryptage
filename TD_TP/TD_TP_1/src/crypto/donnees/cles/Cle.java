@@ -5,14 +5,16 @@
  */
 package crypto.donnees.cles;
 
+import crypto.exceptions.ExceptionConversionImpossible;
+
 /**
  *
  * @author asus
  */
 public interface Cle {
     
-    public String asString();
+    public String asString() throws ExceptionConversionImpossible;
     
-    public int asInteger();
+    public int asInteger() throws ExceptionConversionImpossible;
     
 }

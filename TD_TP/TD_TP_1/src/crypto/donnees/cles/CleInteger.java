@@ -20,25 +20,30 @@ public class CleInteger implements Cle{
     }
 
     @Override
-    public String asString() {
-        
+    public String asString() throws ExceptionConversionImpossible {
         String res = "";
         
         try{
             res = Integer.toString(this.cle);
         }
         catch(Exception e){
-            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en String");
-            excep.gerer();
+            throw new ExceptionConversionImpossible("Conversion Impossible en chaine de caractères");
         }
         
         return res;
     }
 
     @Override
-    public int asInteger() {
-        return this.cle;
+    public int asInteger() throws ExceptionConversionImpossible {
+        int res = 0;
+        
+        try{
+            res = this.cle;
+        }
+        catch(Exception e){
+            throw new ExceptionConversionImpossible("Conversion Impossible en entier");
+        }
+        
+        return res;
     }
-    
-    
 }

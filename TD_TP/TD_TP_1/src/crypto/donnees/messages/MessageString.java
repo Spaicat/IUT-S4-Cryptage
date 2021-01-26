@@ -26,14 +26,13 @@ public class MessageString implements Message {
      * @return le message à envoyer
      */
     @Override
-    public String asString() {
+    public String asString() throws ExceptionConversionImpossible {
         String result = "";
         try {
             result = this.message;
         }
         catch (Exception e) {
-            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en String");
-            excep.gerer();
+            throw new ExceptionConversionImpossible("Conversion Impossible en chaine de caractère");
         }
         return result;
     }
@@ -43,14 +42,13 @@ public class MessageString implements Message {
      * @return le message à envoyer
      */
     @Override
-    public Integer asInteger() {
+    public Integer asInteger() throws ExceptionConversionImpossible {
         int result = 0;
         try {
             result = Integer.parseInt(message);
         }
-        catch(Exception e){
-            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en String");
-            excep.gerer();
+        catch (Exception e) {
+            throw new ExceptionConversionImpossible("Conversion Impossible en entier");
         }
         return result;
     }

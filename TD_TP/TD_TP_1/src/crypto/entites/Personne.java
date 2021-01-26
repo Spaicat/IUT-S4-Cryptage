@@ -9,6 +9,7 @@ import crypto.algorithmes.chiffrement.Algorithme;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
 import crypto.exceptions.ExceptionAlgorithmeNonDefini;
+import crypto.exceptions.ExceptionChiffrementImpossible;
 
 /**
  *
@@ -48,16 +49,19 @@ public class Personne{
     }
     
     
-    public Message chiffrer(Message message, Cles clesPubliques){
+    public Message chiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini {
         
         Message m = null;
         
+        if(this.algorithme == null) {
+            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini dans chiffrer");
+        }
         try{
             m = this.algorithme.chiffrer(message, clesPubliques, clesPrivees);
         }
         catch(Exception e){
             
-            ExceptionAlgorithmeNonDefini excep = new ExceptionAlgorithmeNonDefini("Algorithme non defini");
+            ExceptionChiffrementImpossible excep = new ExceptionChiffrementImpossible("Algorithme non defini");
             excep.gerer();
         }
         
@@ -65,16 +69,20 @@ public class Personne{
         
     }
     
-    public Message dechiffrer(Message message, Cles clesPubliques){
+    public Message dechiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini {
         
         Message m = null;
+        
+        if(this.algorithme == null) {
+            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini dans dechiffrer");
+        }
         
         try{
             m = this.algorithme.dechiffrer(message, clesPubliques, clesPrivees);
         }
         catch(Exception e){
             
-            ExceptionAlgorithmeNonDefini excep = new ExceptionAlgorithmeNonDefini("Algorithme non defini");
+            ExceptionChiffrementImpossible excep = new ExceptionChiffrementImpossible("Algorithme non defini");
             excep.gerer();
         }
         

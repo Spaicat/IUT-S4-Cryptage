@@ -5,11 +5,13 @@
  */
 package crypto.donnees.messages;
 
+import crypto.exceptions.ExceptionConversionImpossible;
+
 /**
  *
  * @author asus
  */
 public interface Message {
-    public String asString();
-    public Integer asInteger();
+    public String asString() throws ExceptionConversionImpossible;
+    public Integer asInteger() throws ExceptionConversionImpossible;
 }
