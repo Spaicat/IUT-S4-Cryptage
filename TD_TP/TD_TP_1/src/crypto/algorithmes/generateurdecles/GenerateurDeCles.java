@@ -5,10 +5,16 @@
  */
 package crypto.algorithmes.generateurdecles;
 
+import crypto.donnees.cles.Cles;
+
 /**
  *
  * @author asus
  */
-public class GenerateurDeCles {
+public interface GenerateurDeCles {
+    
+    public Cles genererClePublique();
+    
+    public Cles genererClePrivee();
     
 }

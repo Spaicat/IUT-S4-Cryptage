@@ -7,6 +7,7 @@ package crypto.algorithmes.chiffrement;
 
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
+import crypto.exceptions.ExceptionCryptographie;
 
 /**
  *
@@ -17,6 +18,6 @@ public interface Algorithme {
     
     public String getNom();
     
-    public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees);
-    public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees);
+    public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie;
+    public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees)throws ExceptionCryptographie;
 }

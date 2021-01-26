@@ -22,8 +22,5 @@ public class Univers {
         this.listeClesPubliques = new HashMap<String, Cles>();
         this.listeMessagesPublics = new HashMap<String, Message>();
     }
-    
-    public static Univers get() {
-        
-    }
+
 }

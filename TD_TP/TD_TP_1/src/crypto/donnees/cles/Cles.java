@@ -5,10 +5,28 @@
  */
 package crypto.donnees.cles;
 
+import java.util.HashMap;
+
 /**
  *
  * @author asus
  */
 public class Cles {
+    
+    private HashMap<String,Cle> listeCles;
+    
+    public Cles(){
+        listeCles = new HashMap<String,Cle>();
+    }
+    
+    public Cle getCle(String nom){
+        
+        return listeCles.get(nom);
+    }
+    
+    public void addCle(String nom, Cle cle){
+        
+        this.listeCles.put(nom, cle);
+    }
     
 }
