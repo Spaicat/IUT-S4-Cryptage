@@ -24,6 +24,10 @@ public class Univers {
     }
     
     public static Univers get() {
+        return instance;
+    }
+    
+    public void addCles(String identifiant, Cles cles) {
         
     }
 }
