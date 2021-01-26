@@ -9,6 +9,14 @@ package crypto.exceptions;
  *
  * @author asus
  */
-public class ExceptionConversionImpossible {
+public class ExceptionConversionImpossible extends ExceptionCryptographie{
+    
+    public ExceptionConversionImpossible(String m, String n) {
+        super(m, n); 
+        
+        n = "Conversion impossible";
+        m = "La conversion est impossible";
+    }
+    
     
 }

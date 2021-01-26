@@ -9,6 +9,13 @@ package crypto.exceptions;
  *
  * @author asus
  */
-public class ExceptionChiffrementImpossible {
+public class ExceptionChiffrementImpossible extends ExceptionCryptographie{
+    
+    public ExceptionChiffrementImpossible(String m, String n) {
+        super(m, n);
+                 
+        n = "Chiffrement impossible";
+        m = "Les chiffrement est impossible";
+    }
     
 }
