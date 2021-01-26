@@ -9,6 +9,7 @@ package crypto.donnees.messages;
  *
  * @author asus
  */
-public class Message {
-    
+public interface Message {
+    public String asString();
+    public Integer asInteger();
 }
