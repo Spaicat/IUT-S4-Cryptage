@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.algorithmes;
+package crypto.donnees.messages;
 
 /**
  *
  * @author asus
  */
-public class GenerateurDeCles {
+public class Message {
     
 }
