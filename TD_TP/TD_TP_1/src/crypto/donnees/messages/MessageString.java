@@ -32,7 +32,7 @@ public class MessageString implements Message {
             result = this.message;
         }
         catch (Exception e) {
-            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en String");
+            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en chaine de caractère");
             excep.gerer();
         }
         return result;
@@ -48,8 +48,9 @@ public class MessageString implements Message {
         try {
             result = Integer.parseInt(message);
         }
-        catch (ExceptionConversionImpossible ex) {
-            ex.gerer();
+        catch (Exception e) {
+            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en entier");
+            excep.gerer();
         }
         return result;
     }
