@@ -5,10 +5,40 @@
  */
 package crypto.donnees.cles;
 
+import crypto.exceptions.ExceptionConversionImpossible;
+
 /**
  *
  * @author asus
  */
-public class CleInteger {
+public class CleInteger implements Cle{
+    
+    private int cle;
+    
+    public CleInteger(int cle){
+        this.cle = cle;
+    }
+
+    @Override
+    public String asString() {
+        
+        String res = "";
+        
+        try{
+            res = Integer.toString(this.cle);
+        }
+        catch(Exception e){
+            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en String");
+            excep.gerer();
+        }
+        
+        return res;
+    }
+
+    @Override
+    public int asInteger() {
+        return this.cle;
+    }
+    
     
 }

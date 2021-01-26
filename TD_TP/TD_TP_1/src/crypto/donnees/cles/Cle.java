@@ -9,6 +9,10 @@ package crypto.donnees.cles;
  *
  * @author asus
  */
-public class Cle {
+public interface Cle {
+    
+    public String asString();
+    
+    public int asInteger();
     
 }

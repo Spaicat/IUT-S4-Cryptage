@@ -26,7 +26,6 @@ public abstract class ExceptionCryptographie extends Exception{
         //Message d'erreur
         System.err.println(this.nom + " : " + this.message);
         
-
         this.printStackTrace(System.err);
         
     }

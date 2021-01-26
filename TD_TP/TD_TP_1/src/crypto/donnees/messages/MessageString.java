@@ -48,8 +48,9 @@ public class MessageString implements Message {
         try {
             result = Integer.parseInt(message);
         }
-        catch (ExceptionConversionImpossible ex) {
-            ex.gerer();
+        catch(Exception e){
+            ExceptionConversionImpossible excep = new ExceptionConversionImpossible("Conversion Impossible en String");
+            excep.gerer();
         }
         return result;
     }
