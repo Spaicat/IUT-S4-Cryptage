@@ -10,15 +10,8 @@ package crypto.exceptions;
  * @author asus
  */
 public class ExceptionAlgorithmeNonDefini extends ExceptionCryptographie{
-    
-    public ExceptionAlgorithmeNonDefini(String m, String n) {
-        super(m, n);
         
-        n = "Erreur Algorithme non défini";
-        m = "L'algorithme n'est pas défini";
-        
+    public ExceptionAlgorithmeNonDefini(String m) {
+        super("Erreur Algorithme non défini", m);
     }
-    
-    
- 
 }
