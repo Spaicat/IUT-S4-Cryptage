@@ -12,6 +12,9 @@ import crypto.exceptions.ExceptionConversionImpossible;
  * @author Thibault
  */
 public class CleString implements Cle {
+    
+    public CleString(String chaine){
+    }
 
     @Override
     public String asString() throws ExceptionConversionImpossible {
@@ -20,7 +23,7 @@ public class CleString implements Cle {
 
     @Override
     public int asInteger() throws ExceptionConversionImpossible {
-        return null;
+        return 0;
     }
     
 }
