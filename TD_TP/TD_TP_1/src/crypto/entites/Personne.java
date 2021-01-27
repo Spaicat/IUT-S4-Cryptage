@@ -49,7 +49,7 @@ public class Personne{
     }
     
     
-    public Message chiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini {
+    public Message chiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini, ExceptionChiffrementImpossible {
         
         Message m = null;
         
@@ -60,16 +60,14 @@ public class Personne{
             m = this.algorithme.chiffrer(message, clesPubliques, clesPrivees);
         }
         catch(Exception e){
-            
-            ExceptionChiffrementImpossible excep = new ExceptionChiffrementImpossible("Algorithme non defini");
-            excep.gerer();
+            throw new ExceptionChiffrementImpossible("Chiffrement impossible dans chiffrer");
         }
         
         return m;
         
     }
     
-    public Message dechiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini {
+    public Message dechiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini, ExceptionChiffrementImpossible {
         
         Message m = null;
         
@@ -81,9 +79,7 @@ public class Personne{
             m = this.algorithme.dechiffrer(message, clesPubliques, clesPrivees);
         }
         catch(Exception e){
-            
-            ExceptionChiffrementImpossible excep = new ExceptionChiffrementImpossible("Algorithme non defini");
-            excep.gerer();
+            throw new ExceptionChiffrementImpossible("Chiffrement impossible dans dechiffrer");
         }
         
         return m;
