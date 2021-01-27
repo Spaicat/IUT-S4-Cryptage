@@ -5,6 +5,9 @@
  */
 package crypto;
 
+import crypto.protocoles.Protocole;
+import crypto.protocoles.ProtocoleTransposition;
+
 /**
  *
  * @author asus
@@ -15,7 +18,8 @@ public class Crypto_nite {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Protocole proto = new ProtocoleTransposition();
+        proto.executer();
     }
     
 }

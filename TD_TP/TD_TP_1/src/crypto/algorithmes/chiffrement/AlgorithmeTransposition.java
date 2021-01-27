@@ -204,11 +204,10 @@ public class AlgorithmeTransposition implements Algorithme{
      */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
+        
+        
                 try{
             /*INDEX*/
-            //Notre index de l'ordre pour la lecture des colonnes
-            int j = 0;
-            
             //Init index du message
             int indexMsg = 0;
             
@@ -242,7 +241,7 @@ public class AlgorithmeTransposition implements Algorithme{
                 //ligne
                 for(int i = 0;i < tab.length;i++){
                     //On lit l'ordre
-                    j = listOrdre.get(k);
+                    int j = listOrdre.get(k);
                     
                     //remplit les cases vides
                     char temp = 'x';
@@ -267,11 +266,11 @@ public class AlgorithmeTransposition implements Algorithme{
                     char c = tab[y][x];
                     
                     //On reconstitue le msg
-                    msgFinal += c;     
+                    msgFinal += c;  
+                    
                         
                 }
             }
-            
             //On remet le msg en String
             message = new MessageString(msgFinal);
             
@@ -282,7 +281,5 @@ public class AlgorithmeTransposition implements Algorithme{
         
         return message;
     }
-    
-    
     
 }

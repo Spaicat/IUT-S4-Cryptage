@@ -47,10 +47,14 @@ public class ProtocoleTransposition implements Protocole {
             
             //Bob récupère le message depuis l’Univers et le décode
             Message msgRecup = Univers.getMessage("Message Alice");
-            bob.dechiffrer(msgRecup, cles);
+            Message msgFinal = bob.dechiffrer(msgRecup,cles);
             
-            System.out.println(msgChiffrer);
-            System.out.println(msgRecup);
+            System.out.println("*****Alice*****");
+            System.out.println("Message Clair d'Alice : " + msgClair.asString());
+            System.out.println("\nMessage chiffré par Alice : " + msgChiffrer.asString());
+            System.out.println("\n*****Bob*****");
+            System.out.println("Message a déchiffré par Bob : " + msgChiffrer.asString());
+            System.out.println("\nMessage déchiffré par Bob : " + msgFinal.asString());
         }
         catch (ExceptionCryptographie e) {
             e.gerer();
