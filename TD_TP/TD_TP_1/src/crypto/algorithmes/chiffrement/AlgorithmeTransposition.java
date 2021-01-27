@@ -15,6 +15,7 @@ import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
 import java.nio.ByteBuffer;
 import java.security.SecureRandom;
+import java.util.Random;
 
 /**
  *
@@ -23,6 +24,11 @@ import java.security.SecureRandom;
 public class AlgorithmeTransposition implements Algorithme{
 
     SecureRandom generateur;
+    
+    /**
+     * 
+     * @return le nom du cryptage
+     */
     @Override
     public String getNom() {
         return "Transposition";
@@ -87,12 +93,13 @@ public class AlgorithmeTransposition implements Algorithme{
      * @return un caractere au hasard
      */
     private char bourrage(){
+        Random random = new Random();
         
         //String avec toutes les lettres
         String allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefeghijklmnopqrstuvwxyz";
         
         //On choisit une position au hasard
-        int randomPos = this.generateur.nextInt(allLetters.length());
+        int randomPos = random.nextInt(allLetters.length());
         
         //On récupère le caractere à la position indiquée
         char randomChar = allLetters.charAt(randomPos);
