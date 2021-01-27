@@ -55,11 +55,19 @@ public class MessageString implements Message {
     
     public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible{
         
+        //On crée notre liste qui va contenir les caractères ascii
         ArrayList<Integer> list = new ArrayList<Integer>();
         
+        //On récupère le code ascii pour chaque lettre
         for(int i = 0;i < this.message.length();i++){
+            
+            //On met la lettre dans une variable
             char lettre = this.message.charAt(i);
+            
+            //On convertit la lettre en int -> code ascii
             int ascii = (int)lettre;
+            
+            //On l'ajoute à la liste
             list.add(ascii);
         }
         
