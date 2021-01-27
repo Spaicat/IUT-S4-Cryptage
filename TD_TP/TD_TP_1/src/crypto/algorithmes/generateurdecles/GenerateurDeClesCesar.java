@@ -15,6 +15,7 @@ import java.util.Random;
  * @author asus
  */
 public class GenerateurDeClesCesar {
+    private Cles cles;
     
     public GenerateurDeClesCesar(){
         
@@ -26,7 +27,14 @@ public class GenerateurDeClesCesar {
     }
     
     public Cles genererClePrivee(){
-        return null; //pas compris mdr
+        if (this.cles == null) {
+            Random random = new Random();
+            int nbAleatoire = random.nextInt(25);
+            
+            this.cles = new Cles();
+            this.cles.addCle("cleCesar", new CleInteger(nbAleatoire));
+        }
+        return this.cles;
     }
     
 }
