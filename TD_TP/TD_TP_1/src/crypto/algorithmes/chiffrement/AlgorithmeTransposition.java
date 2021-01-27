@@ -23,29 +23,50 @@ public class AlgorithmeTransposition implements Algorithme{
         return "Transposition";
     }
     
+    /**
+     * 
+     * @param message
+     * @param cle
+     * @return le tableau remplie avec les caracteres
+     * @throws ExceptionConversionImpossible 
+     */
     private char[][] remplirTableauChiffrement(Message message,Cle cle)throws ExceptionConversionImpossible{
-                
+       
+        //Initilisation tableau ligne
         int tailleTableauX = cle.asString().length();
-        int tailleMsg = message.asString().length();
-        int i = 0;
-        //Connaitre le nombre de ligne
-        int calcul = tailleMsg / tailleTableauX;
-        int tailleTableauY = (int)ceil(calcul);
         
-        char [][] tab = new char[tailleTableauX][tailleTableauY];
+        //Init taille message
+        int tailleMsg = message.asString().length();
+        
+        //Init index du message
+        int i = 0;
+        
+        //Connaitre le nombre de ligne
+        //On arrondit au rang supérieur 
+        double calcul = (double)tailleMsg / tailleTableauX;
+        int tailleTableauY = (int)ceil(calcul);
+     
+        
+        char [][] tab = new char[tailleTableauY][tailleTableauX];
               
             //ligne
             for(int y = 0;y < tailleTableauY;y++){
                 //colonne
                 for(int x = 0;x < tailleTableauX;x++){
-                                      
-                        char temp = message.asString().charAt(i);
-                        tab[x][y] = temp;
-                        i++;
-                        System.out.println(temp);
-                        
+                    
+                    char temp = 'x';
+                    
+                    //On verifie que i est bien inférieur à la taille du message
+                    if(i < tailleMsg)
+                    {
+                        temp = message.asString().charAt(i);
                     }
+                    //on met le caractère dans le tableau
+                    tab[y][x] = temp;
+                    i++;    
+                        
                 }
+            }
 
         return tab;
              
