@@ -53,8 +53,17 @@ public class MessageString implements Message {
         return result;
     }
     
-    public ArrayList<Integer> getListAsciiCode() {
-        return null;
+    public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible{
+        
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        
+        for(int i = 0;i < this.message.length();i++){
+            char lettre = this.message.charAt(i);
+            int ascii = (int)lettre;
+            list.add(ascii);
+        }
+        
+        return list;
     }
     
 }

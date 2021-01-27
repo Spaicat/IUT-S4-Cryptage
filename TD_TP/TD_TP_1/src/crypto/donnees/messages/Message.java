@@ -6,6 +6,7 @@
 package crypto.donnees.messages;
 
 import crypto.exceptions.ExceptionConversionImpossible;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,4 +15,5 @@ import crypto.exceptions.ExceptionConversionImpossible;
 public interface Message {
     public String asString() throws ExceptionConversionImpossible;
     public Integer asInteger() throws ExceptionConversionImpossible;
+    public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible;
 }
