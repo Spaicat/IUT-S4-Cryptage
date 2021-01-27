@@ -5,6 +5,8 @@
  */
 package crypto.algorithmes.chiffrement;
 
+import crypto.algorithmes.chiffrement.algorithmeTransposition.ComparateurCouple;
+import crypto.algorithmes.chiffrement.algorithmeTransposition.Couple;
 import crypto.donnees.cles.Cle;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
@@ -13,6 +15,8 @@ import crypto.exceptions.ExceptionCryptographie;
 import static java.lang.Math.ceil;
 import java.nio.ByteBuffer;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -102,15 +106,65 @@ public class AlgorithmeTransposition implements Algorithme{
         
         return randomChar;
     }
+    /**
+     * 
+     * @param cle
+     * @return
+     * @throws ExceptionConversionImpossible 
+     */
+    private ArrayList<Integer> getOrdreColonne(Cle cle) throws ExceptionConversionImpossible{
+        //Notre liste qui comportera notre nouvel ordre
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        
+        //Notre liste de couple
+        ArrayList<Couple> listCouple = new ArrayList<Couple>();
 
+        //On recup le mot sous forme d'un string
+        String cleOrdre = cle.asString();
+        
+        //On crée les couples
+        for(int i = 0;i < cleOrdre.length();i++){
+            
+            listCouple.add(new Couple(cleOrdre.charAt(i),i));
+        }
+        
+        //On trie 
+        Collections.sort(listCouple,new ComparateurCouple());
+
+        //On met la position dans la list avec notre nouvel ordre
+        for(Couple c : listCouple) {
+            list.add(c.getPosition());
+        }    
+        
+        return list;
+    }
+
+    /**
+     * 
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return
+     * @throws ExceptionCryptographie 
+     */
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * 
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return
+     * @throws ExceptionCryptographie 
+     */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
     
 }

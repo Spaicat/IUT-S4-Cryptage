@@ -33,7 +33,7 @@ public class ComparateurCouple implements Comparator<Couple>{
         }      
         //Si égal on vérifie la position
         else{
-            //Si la position de couple 1 est inférieur à celle de couple 2
+            //différence des positions
             res = posC1 - posC2;
         }
         return res;

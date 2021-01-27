@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.algorithmes.chiffrement.algorithmetransposition;
+package crypto.algorithmes.chiffrement.algorithmeTransposition;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,11 +12,9 @@ import org.junit.Test;
 
 /**
  *
- * @author simonetma
+ * @author asus
  */
-public class TrieListeCoupleTest {
-    
-    
+public class TrieListeCoupleTest2 {
     @Test
     public void testTrieListeCouples() {
         System.out.println("Test du trie d'une liste de couple");
@@ -34,5 +32,4 @@ public class TrieListeCoupleTest {
         
         assertEquals("H1L3L4e2o5", result);
     }
-    
 }
