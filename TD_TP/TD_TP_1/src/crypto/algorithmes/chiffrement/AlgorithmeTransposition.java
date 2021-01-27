@@ -10,6 +10,9 @@ import crypto.algorithmes.chiffrement.algorithmeTransposition.Couple;
 import crypto.donnees.cles.Cle;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
+import crypto.donnees.messages.MessageASCII;
+import crypto.donnees.messages.MessageString;
+import crypto.exceptions.ExceptionAlgorithmeNonDefini;
 import crypto.exceptions.ExceptionConversionImpossible;
 import crypto.exceptions.ExceptionCryptographie;
 import static java.lang.Math.ceil;
@@ -17,7 +20,6 @@ import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  *
@@ -90,7 +92,7 @@ public class AlgorithmeTransposition implements Algorithme{
     }
     
     /**
-     * 
+     * Pour combler les cellules vides
      * @return un caractere au hasard
      */
     private char bourrage(){
@@ -142,27 +144,143 @@ public class AlgorithmeTransposition implements Algorithme{
     /**
      * 
      * @param message
-     * @param clesPubliques
+     * @param clesPubliques = null
      * @param clesPrivees
      * @return
      * @throws ExceptionCryptographie 
      */
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try{
+            //Notre index de l'ordre pour la lecture des colonnes
+            int j = 0;
+            
+            //Init du msg final
+            String msgFinal = "";
+            
+            //Clé privée
+            Cle clePV = clesPrivees.getCle("cleTransposition");
+            
+            //On remplie le tableau
+            char[][] tab = remplirTableauChiffrement(message, clePV);
+
+            //On recupere dans une variable la liste de l'ordre
+            ArrayList<Integer> listOrdre = this.getOrdreColonne(clePV);
+            
+            //colonne
+            for(int k = 0;k < listOrdre.size();k++){
+                //ligne
+                for(int i = 0;i < tab.length;i++){
+                    //On lit l'ordre
+                    j = listOrdre.get(k);
+                    
+                    //On recupere le caractere
+                    char c = tab[i][j];
+                    
+                    //On reconstitue le msg
+                    msgFinal += c;                    
+                }
+            }
+            
+            //On remet le msg en String
+            message = new MessageString(msgFinal);
+            
+        }catch(Exception e){
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+        
+        
+        return message;
     }
 
     /**
      * 
      * @param message
-     * @param clesPubliques
+     * @param clesPubliques = null
      * @param clesPrivees
      * @return
      * @throws ExceptionCryptographie 
      */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                try{
+            /*INDEX*/
+            //Notre index de l'ordre pour la lecture des colonnes
+            int j = 0;
+            
+            //Init index du message
+            int indexMsg = 0;
+            
+            //Init du msg final
+            String msgFinal = "";
+            
+            /*Recuperation de donnes dans des variables*/
+            //Clé privée
+            Cle clePV = clesPrivees.getCle("cleTransposition");
+            
+            //Ordre
+            ArrayList<Integer> listOrdre = this.getOrdreColonne(clePV);
+            
+            //Init taille message
+            int tailleMsg = message.asString().length();
+            
+            /*Initialisation des lignes et colonnes*/
+            //Ligne
+            int tailleTableauX = clePV.asString().length();
+
+            //Colonne
+            double calcul = (double)tailleMsg / tailleTableauX;
+            int tailleTableauY = (int)ceil(calcul);
+                    
+            //On remplie le tableau
+            char[][] tab = new char[tailleTableauY][tailleTableauX];      
+            
+            /*On remplit le tableau*/
+            //colonne
+            for(int k = 0;k < listOrdre.size();k++){
+                //ligne
+                for(int i = 0;i < tab.length;i++){
+                    //On lit l'ordre
+                    j = listOrdre.get(k);
+                    
+                    //remplit les cases vides
+                    char temp = 'x';
+                    
+                    //On verifie que i est bien inférieur à la taille du message
+                    if(indexMsg < tailleMsg)
+                    {
+                        temp = message.asString().charAt(indexMsg);
+                    }
+                    //on met le caractère dans le tableau
+                    tab[i][j] = temp;
+                    indexMsg++;       
+                }
+            }
+            
+            /*On recupere le message*/
+            for(int y = 0;y < tailleTableauY;y++){
+                //colonne
+                for(int x = 0;x < tailleTableauX;x++){
+                    
+                    //On recupere le caractere
+                    char c = tab[y][x];
+                    
+                    //On reconstitue le msg
+                    msgFinal += c;     
+                        
+                }
+            }
+            
+            //On remet le msg en String
+            message = new MessageString(msgFinal);
+            
+        }catch(Exception e){
+            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini");
+        }
+        
+        
+        return message;
     }
     
     
