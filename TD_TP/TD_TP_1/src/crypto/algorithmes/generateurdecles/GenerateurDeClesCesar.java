@@ -5,7 +5,6 @@
  */
 package crypto.algorithmes.generateurdecles;
 
-import crypto.donnees.cles.Cle;
 import crypto.donnees.cles.CleInteger;
 import crypto.donnees.cles.Cles;
 import java.util.Random;

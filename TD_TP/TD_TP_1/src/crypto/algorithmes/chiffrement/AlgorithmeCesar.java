@@ -27,7 +27,7 @@ public class AlgorithmeCesar implements Algorithme{
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         
         ArrayList<Integer> msgFinale = new ArrayList<Integer>();
-        int chiffrage = 0; 
+        int chiffrage = 32; 
         
         for(int i = 0; i < message.getListAsciiCode().size();i++){
             
@@ -37,8 +37,41 @@ public class AlgorithmeCesar implements Algorithme{
             //Valeur de la clé PV
             int clePV = clesPrivees.getCle("cleCesar").asInteger();
             
-            if(codeASCII != 0){
-                chiffrage = codeASCII + clePV;
+            //On verifie si c un espace
+            if(codeASCII != 32){
+                
+                int res = codeASCII + clePV;
+                
+                //Majuscule
+                if(codeASCII > 65 && codeASCII < 90){
+                    //si ça dépasse Z
+                    if(res < 90){
+                        
+                        res -= 90;
+                        res += 96;
+                        
+                        chiffrage = res + clePV;
+                    }
+                    else{
+                        chiffrage = codeASCII + clePV;
+                    }
+                }
+                //Minuscule
+                else if(codeASCII > 97 && codeASCII < 122){
+                    //Si ça dépasse z 
+                    if(res < 122){
+                        
+                        res -= 122;
+                        res += 96;
+                        
+                        chiffrage = res + clePV;
+                    }
+                    else{
+                        chiffrage = codeASCII + clePV;
+                    }
+                }
+                    
+                
             }
             
             //Changement de l'ancien caractere par le nouveau
