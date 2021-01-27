@@ -53,6 +53,11 @@ public class MessageString implements Message {
         return result;
     }
     
+    /**
+     * 
+     * @return Renvoie la liste des codes ascii (int)
+     * @throws ExceptionConversionImpossible 
+     */
     public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible{
         
         //On crée notre liste qui va contenir les caractères ascii

@@ -20,7 +20,10 @@ public class MessageASCII implements Message{
         this.list = list;
         
     }
-
+    /***
+     * @return Renvoie le mot reconstitué
+     * @throws ExceptionConversionImpossible 
+     */
     @Override
     public String asString() throws ExceptionConversionImpossible {
         
@@ -47,6 +50,11 @@ public class MessageASCII implements Message{
         throw new ExceptionConversionImpossible("Conversion impossible"); 
     }
 
+    /**
+     * 
+     * @return Renvoie la liste des codes ascii
+     * @throws ExceptionConversionImpossible 
+     */
     @Override
     public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible {
         return this.list;
