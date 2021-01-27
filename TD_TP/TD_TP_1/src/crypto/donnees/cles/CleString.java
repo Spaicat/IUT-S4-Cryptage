@@ -12,18 +12,29 @@ import crypto.exceptions.ExceptionConversionImpossible;
  * @author Thibault
  */
 public class CleString implements Cle {
+    private String cle;
     
     public CleString(String chaine){
+        this.cle = chaine;
     }
 
     @Override
     public String asString() throws ExceptionConversionImpossible {
-        return null;
+        String res = "";
+        
+        try{
+            res = this.cle;
+        }
+        catch(Exception e){
+            throw new ExceptionConversionImpossible("Conversion Impossible en chaine de caractères");
+        }
+        
+        return res;
     }
 
     @Override
     public int asInteger() throws ExceptionConversionImpossible {
-        return 0;
+        throw new ExceptionConversionImpossible("Conversion Impossible en entier");
     }
     
 }
