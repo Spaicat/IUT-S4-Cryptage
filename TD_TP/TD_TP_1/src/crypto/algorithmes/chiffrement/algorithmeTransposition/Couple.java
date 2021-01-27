@@ -23,5 +23,38 @@ public class Couple {
         this.caractere = caractere;
         this.position = position;
     }
+
+    /**
+     * 
+     * @return 
+     */
+    public char getCaractere() {
+        return caractere;
+    }
+
+    /**
+     * 
+     * @param caractere 
+     */
+    public void setCaractere(char caractere) {
+        this.caractere = caractere;
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public int getPosition() {
+        return position;
+    }
+
+    /***
+     * 
+     * @param position 
+     */
+    public void setPosition(int position) {
+        this.position = position;
+    }
     
+  
 }

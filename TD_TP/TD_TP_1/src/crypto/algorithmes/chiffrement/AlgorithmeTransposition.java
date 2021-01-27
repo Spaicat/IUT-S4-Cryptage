@@ -11,8 +11,6 @@ import crypto.donnees.messages.Message;
 import crypto.exceptions.ExceptionConversionImpossible;
 import crypto.exceptions.ExceptionCryptographie;
 import static java.lang.Math.ceil;
-import static java.lang.Math.random;
-import static java.lang.StrictMath.random;
 import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.util.Random;
@@ -84,8 +82,7 @@ public class AlgorithmeTransposition implements Algorithme{
                 }
             }
 
-        return tab;
-             
+        return tab;       
     }
     
     /**
@@ -93,13 +90,12 @@ public class AlgorithmeTransposition implements Algorithme{
      * @return un caractere au hasard
      */
     private char bourrage(){
-        Random random = new Random();
-        
+       
         //String avec toutes les lettres
         String allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefeghijklmnopqrstuvwxyz";
         
         //On choisit une position au hasard
-        int randomPos = random.nextInt(allLetters.length());
+        int randomPos = generateur.nextInt(allLetters.length());
         
         //On récupère le caractere à la position indiquée
         char randomChar = allLetters.charAt(randomPos);
