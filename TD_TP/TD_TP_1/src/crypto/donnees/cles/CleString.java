@@ -8,8 +8,8 @@ package crypto.donnees.cles;
 import crypto.exceptions.ExceptionConversionImpossible;
 
 /**
- *
- * @author Thibault
+ * Représente une clé sous forme de chaine de caractère
+ * @author Thibault, Antonia
  */
 public class CleString implements Cle {
     private String cle;
@@ -18,6 +18,11 @@ public class CleString implements Cle {
         this.cle = chaine;
     }
 
+    /**
+     * Donne la clé sous forme de chaine de caractère
+     * @return la clé sous forme de chaine de caractère
+     * @throws ExceptionConversionImpossible
+     */
     @Override
     public String asString() throws ExceptionConversionImpossible {
         String res = "";
@@ -32,6 +37,11 @@ public class CleString implements Cle {
         return res;
     }
 
+    /**
+     * Donne la forme entière de la clé mais renvoie une exception car c'est sous la forme d'une chaine de caractère
+     * @return ne renvoie rien car il y aura une exception
+     * @throws ExceptionConversionImpossible l'exception renvoyé pour dire que la conversion est impossible
+     */
     @Override
     public int asInteger() throws ExceptionConversionImpossible {
         throw new ExceptionConversionImpossible("Conversion Impossible en entier");

@@ -52,8 +52,8 @@ public class Personne {
      * @param message le message à chiffrer
      * @param clesPubliques les clés permettant de chiffrer
      * @return Le message chiffré
-     * @throws ExceptionAlgorithmeNonDefini Executé si la personne n'a pas d'algorithme
-     * @throws ExceptionChiffrementImpossible Executé si le chiffrement s'effectue mal
+     * @throws ExceptionAlgorithmeNonDefini
+     * @throws ExceptionChiffrementImpossible
      */
     public Message chiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini, ExceptionChiffrementImpossible {
         
@@ -78,8 +78,8 @@ public class Personne {
      * @param message le message à déchiffrer
      * @param clesPubliques les clés permettant de déchiffrer
      * @return Le message déchiffré
-     * @throws ExceptionAlgorithmeNonDefini Executé si la personne n'a pas d'algorithme
-     * @throws ExceptionChiffrementImpossible Executé si le déchiffrement s'effectue mal
+     * @throws ExceptionAlgorithmeNonDefini
+     * @throws ExceptionChiffrementImpossible
      */
     public Message dechiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini, ExceptionChiffrementImpossible {
         

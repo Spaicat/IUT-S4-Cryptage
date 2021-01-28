@@ -8,11 +8,10 @@ package crypto.donnees.cles;
 import crypto.exceptions.ExceptionConversionImpossible;
 
 /**
- *
- * @author asus
+ * Interface representant une clé
+ * @author Thibault, Antonia
  */
 public interface Cle {
-    
     public String asString() throws ExceptionConversionImpossible;
     
     public int asInteger() throws ExceptionConversionImpossible;

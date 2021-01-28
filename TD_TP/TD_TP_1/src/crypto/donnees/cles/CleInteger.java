@@ -8,17 +8,21 @@ package crypto.donnees.cles;
 import crypto.exceptions.ExceptionConversionImpossible;
 
 /**
- *
- * @author asus
+ * Représente une clé "entière"
+ * @author Thibault, Antonia
  */
 public class CleInteger implements Cle{
-    
     private int cle;
     
     public CleInteger(int cle){
         this.cle = cle;
     }
 
+    /**
+     * Donne la clé sous forme de chaine de caractère
+     * @return la clé sous forme de chaine de caractère
+     * @throws ExceptionConversionImpossible
+     */
     @Override
     public String asString() throws ExceptionConversionImpossible {
         String res = "";
@@ -33,6 +37,11 @@ public class CleInteger implements Cle{
         return res;
     }
 
+    /**
+     * Donne la forme entière de la clé
+     * @return la clé sous forme d'entier
+     * @throws ExceptionConversionImpossible 
+     */
     @Override
     public int asInteger() throws ExceptionConversionImpossible {
         int res = 0;
