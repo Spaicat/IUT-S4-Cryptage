@@ -99,22 +99,22 @@ public class AlgorithmeCesar implements Algorithme{
             int clePV = clesPrivees.getCle("cleCesar").asInteger();
             
             //On verifie si c un espace
-            if(codeASCII > 48){
+            if(codeASCII > 65){
                 
                 res = codeASCII - clePV;
                 
                 //Majuscule
-                if(codeASCII > 65 && codeASCII <= 90){
+                if(codeASCII >= 65 && codeASCII <= 90){
                     //si ça dépasse Z
                     if(res < 65){
                         
                         res = 65 - res;
-                        res = 90 - res;
+                        res = 91 - res;
                         
                     }
                 }
                 //Minuscule
-                else if(codeASCII > 97 && codeASCII <= 122){
+                else if(codeASCII >= 97 && codeASCII <= 122){
                     //Si ça dépasse z 
                     if(res < 97){
                         
