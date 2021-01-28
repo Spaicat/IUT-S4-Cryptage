@@ -12,11 +12,10 @@ import crypto.exceptions.ExceptionAlgorithmeNonDefini;
 import crypto.exceptions.ExceptionChiffrementImpossible;
 
 /**
- *
- * @author asus
+ * Modelise une personne
+ * @author Thibault, Antonia
  */
-public class Personne{
-    
+public class Personne {
     private String nom;
     private Algorithme algorithme;
     private Cles clesPrivees;
@@ -25,12 +24,12 @@ public class Personne{
         this.nom = nom;
     }
 
-    //Get & Set de NOM
+    //Get du nom de la personne
     public String getNom() {
         return nom;
     }
 
-    //Get & Set de Algorithme
+    //Get & Set de l'algorithme
     public Algorithme getAlgorithme() {
         return this.algorithme;
     }
@@ -39,7 +38,7 @@ public class Personne{
         this.algorithme = algorithme;
     }
 
-    //Get & Set de CLES PRIVEES
+    //Get & Set des clés privées
     public Cles getClesPrivees() {
         return clesPrivees;
     }
@@ -48,7 +47,14 @@ public class Personne{
         this.clesPrivees = clesPrivees;
     }
     
-    
+    /**
+     * Chiffre le message avec les clés en utilisant l'algorithme de la personne
+     * @param message le message à chiffrer
+     * @param clesPubliques les clés permettant de chiffrer
+     * @return Le message chiffré
+     * @throws ExceptionAlgorithmeNonDefini Executé si la personne n'a pas d'algorithme
+     * @throws ExceptionChiffrementImpossible Executé si le chiffrement s'effectue mal
+     */
     public Message chiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini, ExceptionChiffrementImpossible {
         
         Message m = null;
@@ -60,13 +66,21 @@ public class Personne{
             m = this.algorithme.chiffrer(message, clesPubliques, clesPrivees);
         }
         catch(Exception e){
-            throw new ExceptionChiffrementImpossible("Chiffrement impossible dans chiffrer");
+            throw new ExceptionChiffrementImpossible("Chiffrement impossible");
         }
         
         return m;
         
     }
     
+    /**
+     * Déchiffre le message avec les clés en utilisant l'algorithme de la personne
+     * @param message le message à déchiffrer
+     * @param clesPubliques les clés permettant de déchiffrer
+     * @return Le message déchiffré
+     * @throws ExceptionAlgorithmeNonDefini Executé si la personne n'a pas d'algorithme
+     * @throws ExceptionChiffrementImpossible Executé si le déchiffrement s'effectue mal
+     */
     public Message dechiffrer(Message message, Cles clesPubliques) throws ExceptionAlgorithmeNonDefini, ExceptionChiffrementImpossible {
         
         Message m = null;
@@ -79,7 +93,7 @@ public class Personne{
             m = this.algorithme.dechiffrer(message, clesPubliques, clesPrivees);
         }
         catch(Exception e){
-            throw new ExceptionChiffrementImpossible("Chiffrement impossible dans dechiffrer");
+            throw new ExceptionChiffrementImpossible("Déchiffrement impossible");
         }
         
         return m;
