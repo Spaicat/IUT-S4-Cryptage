@@ -7,7 +7,7 @@ package crypto.algorithmes.chiffrement.algorithmeTransposition;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class Couple {
     

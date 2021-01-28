@@ -23,7 +23,7 @@ import java.util.Collections;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class AlgorithmeTransposition implements Algorithme{
 
@@ -31,7 +31,7 @@ public class AlgorithmeTransposition implements Algorithme{
     
     /**
      * 
-     * @return le nom du cryptage
+     * @return le nom de l'algorithme de cryptage
      */
     @Override
     public String getNom() {
@@ -111,7 +111,7 @@ public class AlgorithmeTransposition implements Algorithme{
     /**
      * 
      * @param cle
-     * @return
+     * @return la liste créant l'ordre 
      * @throws ExceptionConversionImpossible 
      */
     private ArrayList<Integer> getOrdreColonne(Cle cle) throws ExceptionConversionImpossible{
@@ -146,7 +146,7 @@ public class AlgorithmeTransposition implements Algorithme{
      * @param message
      * @param clesPubliques = null
      * @param clesPrivees
-     * @return
+     * @return le message chiffré
      * @throws ExceptionCryptographie 
      */
     @Override
@@ -199,14 +199,13 @@ public class AlgorithmeTransposition implements Algorithme{
      * @param message
      * @param clesPubliques = null
      * @param clesPrivees
-     * @return
+     * @return le message déchiffré
      * @throws ExceptionCryptographie 
      */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-        
-        
-                try{
+      
+        try{
             /*INDEX*/
             //Init index du message
             int indexMsg = 0;
@@ -246,7 +245,7 @@ public class AlgorithmeTransposition implements Algorithme{
                     //remplit les cases vides
                     char temp = 'x';
                     
-                    //On verifie que i est bien inférieur à la taille du message
+                    //On verifie que l'index est bien inférieur à la taille du message
                     if(indexMsg < tailleMsg)
                     {
                         temp = message.asString().charAt(indexMsg);
@@ -276,8 +275,7 @@ public class AlgorithmeTransposition implements Algorithme{
         }catch(Exception e){
             throw new ExceptionAlgorithmeNonDefini("Algorithme non defini");
         }
-        
-        
+                
         return message;
     }
     

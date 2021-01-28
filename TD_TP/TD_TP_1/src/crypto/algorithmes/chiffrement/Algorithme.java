@@ -11,7 +11,7 @@ import crypto.exceptions.ExceptionCryptographie;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public interface Algorithme {
     String nom = "";

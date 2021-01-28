@@ -9,10 +9,16 @@ import java.util.Comparator;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class ComparateurCouple implements Comparator<Couple>{
 
+    /**
+     * Compare deux couples pour les trier 
+     * @param c1 couple 1
+     * @param c2 couple 2
+     * @return 
+     */
     @Override
     public int compare(Couple c1, Couple c2) {
         

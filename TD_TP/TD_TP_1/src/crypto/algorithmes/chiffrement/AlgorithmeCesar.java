@@ -14,15 +14,27 @@ import java.util.ArrayList;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class AlgorithmeCesar implements Algorithme{
 
+    /**
+     * 
+     * @return le nom de l'algorithme
+     */
     @Override
     public String getNom() {
         return "César";
     }
 
+    /**
+     * 
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return Le message chiffré
+     * @throws ExceptionCryptographie 
+     */
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         
@@ -81,6 +93,14 @@ public class AlgorithmeCesar implements Algorithme{
         return message;
     }
 
+    /**
+     * 
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return Le message déchiffré
+     * @throws ExceptionCryptographie 
+     */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
           
@@ -118,8 +138,8 @@ public class AlgorithmeCesar implements Algorithme{
                     //Si ça dépasse z 
                     if(res < 97){
                         
-                        res = 97 - res;
-                        res = 123 - res;
+                        res = 97 - res; //+1 pour que la premiere lettre soit compté
+                        res = 123 - res; //+1 pour que la derniere lettre soit compté
                        
                     }
                 } 
