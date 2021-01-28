@@ -11,11 +11,17 @@ import java.security.SecureRandom;
 
 /**
  *
- * @author Thibault
+ * @author Antonia, Thibault
  */
 public class GenerateurDeClesTransposition implements GenerateurDeCles {
+    
+    //Attribut
     private int taille;
     
+    /**
+     * Constructeur
+     * @param taille : taille de la clé
+     */
     public GenerateurDeClesTransposition(int taille) {
         this.taille = taille;
     }

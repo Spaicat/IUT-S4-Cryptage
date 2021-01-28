@@ -10,12 +10,16 @@ import java.util.ArrayList;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class MessageASCII implements Message{
     
     private ArrayList<Integer> list; //jl'ai crée mais jsuis pas sûre qu'on devait
     
+    /**
+     * Constructor
+     * @param list 
+     */
     public MessageASCII(ArrayList<Integer> list){
         this.list = list;
         
@@ -45,6 +49,10 @@ public class MessageASCII implements Message{
         return mot;
     }
 
+    /**
+     * 
+     * @throws ExceptionConversionImpossible 
+     */
     @Override
     public Integer asInteger() throws ExceptionConversionImpossible {
         throw new ExceptionConversionImpossible("Conversion impossible"); 

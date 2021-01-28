@@ -7,12 +7,10 @@ package crypto.donnees.messages;
 
 import crypto.exceptions.ExceptionConversionImpossible;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class MessageString implements Message {
     private String message;
@@ -23,7 +21,7 @@ public class MessageString implements Message {
     
     /**
      * Renvoie le message sous forme d’une chaine de caractère
-     * @return le message à envoyer
+     * @return result : le message à envoyer
      */
     @Override
     public String asString() throws ExceptionConversionImpossible {
@@ -39,7 +37,7 @@ public class MessageString implements Message {
 
     /**
      * Renvoie le message sous forme d’un entier
-     * @return le message à envoyer
+     * @return result : le message à envoyer
      */
     @Override
     public Integer asInteger() throws ExceptionConversionImpossible {
@@ -55,7 +53,7 @@ public class MessageString implements Message {
     
     /**
      * 
-     * @return Renvoie la liste des codes ascii (int)
+     * @return list : Renvoie la liste des codes ascii (int)
      * @throws ExceptionConversionImpossible 
      */
     public ArrayList<Integer> getListAsciiCode() throws ExceptionConversionImpossible{

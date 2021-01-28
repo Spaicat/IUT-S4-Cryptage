@@ -11,20 +11,25 @@ import java.util.Random;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class GenerateurDeClesCesar {
+    
+    //Attribut
     private Cles cles;
-    
-    public GenerateurDeClesCesar(){
         
-    }
-    
-    //l'algorithme n'a pas de cle publique
+    /**
+     * 
+     * @return null car il n'y a pas de clé publique dans ces algo
+     */
     public Cles genererClePublique(){
         return null;
     }
     
+    /**
+     * 
+     * @return un attribut de type Cles (liste de clés privées)
+     */
     public Cles genererClePrivee(){
         if (this.cles == null) {
             Random random = new Random();

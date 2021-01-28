@@ -9,7 +9,7 @@ import crypto.donnees.cles.Cles;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public interface GenerateurDeCles {
     

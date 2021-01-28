@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public interface Message {
     public String asString() throws ExceptionConversionImpossible;
