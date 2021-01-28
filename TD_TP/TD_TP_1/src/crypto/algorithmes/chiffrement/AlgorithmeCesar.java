@@ -20,14 +20,17 @@ public class AlgorithmeCesar implements Algorithme{
 
     @Override
     public String getNom() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "César";
     }
 
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         
+        //Tableau de char
         ArrayList<Integer> msgFinale = new ArrayList<Integer>();
-        int chiffrage = 32; 
+        
+        //valeur ascii du char  (espace par defaut)
+        int res = 0;
         
         for(int i = 0; i < message.getListAsciiCode().size();i++){
             
@@ -38,45 +41,37 @@ public class AlgorithmeCesar implements Algorithme{
             int clePV = clesPrivees.getCle("cleCesar").asInteger();
             
             //On verifie si c un espace
-            if(codeASCII != 32){
+            if(codeASCII > 48){
                 
-                int res = codeASCII + clePV;
+                res = codeASCII + clePV;
                 
                 //Majuscule
                 if(codeASCII > 65 && codeASCII < 90){
                     //si ça dépasse Z
-                    if(res < 90){
+                    if(res > 90){
                         
                         res -= 90;
-                        res += 96;
+                        res += 64;
                         
-                        chiffrage = res + clePV;
-                    }
-                    else{
-                        chiffrage = codeASCII + clePV;
                     }
                 }
                 //Minuscule
-                else if(codeASCII > 97 && codeASCII < 122){
+                else if(codeASCII > 97 && codeASCII <= 122){
                     //Si ça dépasse z 
-                    if(res < 122){
+                    if(res > 122){
                         
                         res -= 122;
                         res += 96;
-                        
-                        chiffrage = res + clePV;
+                       
                     }
-                    else{
-                        chiffrage = codeASCII + clePV;
-                    }
-                }
-                    
-                
+                } 
+            }else{
+                res = codeASCII;
             }
             
+            
             //Changement de l'ancien caractere par le nouveau
-            //message.getListAsciiCode().set(i, chiffrage); 
-            msgFinale.add(chiffrage);
+            msgFinale.add(res);
                                   
         }
         //On remet le msg en String
@@ -88,9 +83,12 @@ public class AlgorithmeCesar implements Algorithme{
 
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
+          
+        //Tableau de char
+        ArrayList<Integer> msgFinale = new ArrayList<Integer>();
         
-         ArrayList<Integer> msgFinale = new ArrayList<Integer>();
-        int chiffrage = 0; 
+        //valeur ascii du char  (espace par defaut)
+        int res = 0;
         
         for(int i = 0; i < message.getListAsciiCode().size();i++){
             
@@ -100,13 +98,38 @@ public class AlgorithmeCesar implements Algorithme{
             //Valeur de la clé PV
             int clePV = clesPrivees.getCle("cleCesar").asInteger();
             
-            if(codeASCII != 0){
-                chiffrage = codeASCII - clePV;
+            //On verifie si c un espace
+            if(codeASCII > 48){
+                
+                res = codeASCII - clePV;
+                
+                //Majuscule
+                if(codeASCII > 65 && codeASCII <= 90){
+                    //si ça dépasse Z
+                    if(res < 65){
+                        
+                        res = 65 - res;
+                        res = 90 - res;
+                        
+                    }
+                }
+                //Minuscule
+                else if(codeASCII > 97 && codeASCII <= 122){
+                    //Si ça dépasse z 
+                    if(res < 97){
+                        
+                        res = 97 - res;
+                        res = 123 - res;
+                       
+                    }
+                } 
+            }else{
+                res = codeASCII;
             }
             
+            
             //Changement de l'ancien caractere par le nouveau
-            //message.getListAsciiCode().set(i, chiffrage); 
-            msgFinale.add(chiffrage);
+            msgFinale.add(res);
                                   
         }
         //On remet le msg en String

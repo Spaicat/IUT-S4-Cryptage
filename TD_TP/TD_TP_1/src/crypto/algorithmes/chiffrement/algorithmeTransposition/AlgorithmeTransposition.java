@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.algorithmes.chiffrement;
+package crypto.algorithmes.chiffrement.algorithmeTransposition;
 
+import crypto.algorithmes.chiffrement.Algorithme;
 import crypto.algorithmes.chiffrement.algorithmeTransposition.ComparateurCouple;
 import crypto.algorithmes.chiffrement.algorithmeTransposition.Couple;
 import crypto.donnees.cles.Cle;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
-import crypto.donnees.messages.MessageASCII;
 import crypto.donnees.messages.MessageString;
 import crypto.exceptions.ExceptionAlgorithmeNonDefini;
 import crypto.exceptions.ExceptionConversionImpossible;
@@ -267,8 +267,7 @@ public class AlgorithmeTransposition implements Algorithme{
                     
                     //On reconstitue le msg
                     msgFinal += c;  
-                    
-                        
+                                            
                 }
             }
             //On remet le msg en String

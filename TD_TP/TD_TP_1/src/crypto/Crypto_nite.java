@@ -6,6 +6,7 @@
 package crypto;
 
 import crypto.protocoles.Protocole;
+import crypto.protocoles.ProtocoleCesar;
 import crypto.protocoles.ProtocoleTransposition;
 
 /**
@@ -18,8 +19,14 @@ public class Crypto_nite {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Protocole proto = new ProtocoleTransposition();
-        proto.executer();
+        System.out.println("Algorithme de Cesar");
+        Protocole protoC = new ProtocoleCesar();
+        protoC.executer();
+        
+        System.out.println("\nAlgorithme de Transposition");
+        Protocole protoT = new ProtocoleTransposition();
+        protoT.executer();
+                
     }
     
 }

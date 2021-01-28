@@ -5,7 +5,6 @@
  */
 package crypto.algorithmes.chiffrement.algorithmeTransposition;
 
-import crypto.algorithmes.chiffrement.AlgorithmeTransposition;
 import crypto.donnees.cles.CleString;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;

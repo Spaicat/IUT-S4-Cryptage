@@ -5,7 +5,9 @@
  */
 package crypto.protocoles;
 
+import crypto.algorithmes.chiffrement.AlgorithmeCesar;
 import crypto.algorithmes.chiffrement.algorithmeTransposition.AlgorithmeTransposition;
+import crypto.algorithmes.generateurdecles.GenerateurDeClesCesar;
 import crypto.algorithmes.generateurdecles.GenerateurDeClesTransposition;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
@@ -16,9 +18,9 @@ import crypto.exceptions.ExceptionCryptographie;
 
 /**
  *
- * @author Thibault
+ * @author asus
  */
-public class ProtocoleTransposition implements Protocole {
+public class ProtocoleCesar implements Protocole{
 
     @Override
     public void executer() {
@@ -27,11 +29,11 @@ public class ProtocoleTransposition implements Protocole {
         Personne bob = new Personne("Bob");
         
         //On donne à Alice et à Bob deux algorithmes de transposition
-        alice.setAlgorithme(new AlgorithmeTransposition());
-        bob.setAlgorithme(new AlgorithmeTransposition());
+        alice.setAlgorithme(new AlgorithmeCesar());
+        bob.setAlgorithme(new AlgorithmeCesar());
         
         //On génère une clé privée aléatoire que l’on donne à Alice et à Bob
-        GenerateurDeClesTransposition clePriveeAleatoire = new GenerateurDeClesTransposition(5);
+        GenerateurDeClesCesar clePriveeAleatoire = new GenerateurDeClesCesar();
         Cles cles = clePriveeAleatoire.genererClePrivee();
         alice.setClesPrivees(cles);
         bob.setClesPrivees(cles);
@@ -60,4 +62,5 @@ public class ProtocoleTransposition implements Protocole {
             e.gerer();
         }
     }
+    
 }
