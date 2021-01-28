@@ -6,11 +6,10 @@
 package crypto.exceptions;
 
 /**
- *
- * @author asus
+ * Représente une exception d'un algorithme non défini
+ * @author Thibault, Antonia
  */
 public class ExceptionAlgorithmeNonDefini extends ExceptionCryptographie{
-        
     public ExceptionAlgorithmeNonDefini(String m) {
         super("Erreur Algorithme non défini", m);
     }

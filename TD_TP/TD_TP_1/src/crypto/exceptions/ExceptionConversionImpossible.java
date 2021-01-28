@@ -6,8 +6,8 @@
 package crypto.exceptions;
 
 /**
- *
- * @author asus
+ * Représente une exception d'une conversion impossible
+ * @author Antonia
  */
 public class ExceptionConversionImpossible extends ExceptionCryptographie{
     

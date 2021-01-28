@@ -6,11 +6,10 @@
 package crypto.exceptions;
 
 /**
- *
- * @author asus
+ * Représente une exception d'un chiffrement impossible
+ * @author Antonia
  */
 public class ExceptionChiffrementImpossible extends ExceptionCryptographie{
-    
     public ExceptionChiffrementImpossible(String m) {
         super("Chiffrement impossible", m);
     }
