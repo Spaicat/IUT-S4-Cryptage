@@ -6,9 +6,7 @@
 package crypto.protocoles;
 
 import crypto.algorithmes.chiffrement.AlgorithmeCesar;
-import crypto.algorithmes.chiffrement.algorithmeTransposition.AlgorithmeTransposition;
 import crypto.algorithmes.generateurdecles.GenerateurDeClesCesar;
-import crypto.algorithmes.generateurdecles.GenerateurDeClesTransposition;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
 import crypto.donnees.messages.MessageString;
@@ -18,10 +16,13 @@ import crypto.exceptions.ExceptionCryptographie;
 
 /**
  *
- * @author asus
+ * @author Thibault, Antonia
  */
 public class ProtocoleCesar implements Protocole{
 
+    /**
+     * execute le protocole modelisant l'échange du message, cryptage et décryptage
+     */
     @Override
     public void executer() {
         //On crée Alice et Bob

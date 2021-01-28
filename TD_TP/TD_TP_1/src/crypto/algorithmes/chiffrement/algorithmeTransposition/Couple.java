@@ -25,15 +25,15 @@ public class Couple {
     }
 
     /**
-     * 
-     * @return 
+     * returne le caractere du couple
+     * @return caractere
      */
     public char getCaractere() {
         return caractere;
     }
 
     /**
-     * 
+     * set le caractere du couple
      * @param caractere 
      */
     public void setCaractere(char caractere) {
@@ -41,15 +41,15 @@ public class Couple {
     }
 
     /**
-     * 
-     * @return 
+     * Retourne la position du couple
+     * @return position
      */
     public int getPosition() {
         return position;
     }
 
     /***
-     * 
+     * Set la position du couple
      * @param position 
      */
     public void setPosition(int position) {

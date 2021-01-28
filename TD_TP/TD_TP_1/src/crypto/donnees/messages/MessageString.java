@@ -52,7 +52,7 @@ public class MessageString implements Message {
     }
     
     /**
-     * 
+     * Permet de recuperer la liste des caractere du message en ascii
      * @return list : Renvoie la liste des codes ascii (int)
      * @throws ExceptionConversionImpossible 
      */

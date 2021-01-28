@@ -28,7 +28,7 @@ public class AlgorithmeCesar implements Algorithme{
     }
 
     /**
-     * 
+     * Chiffre le message
      * @param message
      * @param clesPubliques
      * @param clesPrivees
@@ -94,7 +94,7 @@ public class AlgorithmeCesar implements Algorithme{
     }
 
     /**
-     * 
+     * Dechiffre le message
      * @param message
      * @param clesPubliques
      * @param clesPrivees

@@ -27,7 +27,7 @@ public class GenerateurDeClesCesar {
     }
     
     /**
-     * 
+     * Genere la cle privée
      * @return un attribut de type Cles (liste de clés privées)
      */
     public Cles genererClePrivee(){

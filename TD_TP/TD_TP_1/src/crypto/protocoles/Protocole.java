@@ -7,7 +7,7 @@ package crypto.protocoles;
 
 /**
  *
- * @author asus
+ * @author Thibault, Antonia
  */
 public interface Protocole {
     

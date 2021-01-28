@@ -16,10 +16,13 @@ import crypto.exceptions.ExceptionCryptographie;
 
 /**
  *
- * @author Thibault
+ * @author Thibault, Antonia
  */
 public class ProtocoleTransposition implements Protocole {
 
+    /**
+     * execute le protocole modelisant l'échange du message, cryptage et décryptage
+     */
     @Override
     public void executer() {
         //On crée Alice et Bob

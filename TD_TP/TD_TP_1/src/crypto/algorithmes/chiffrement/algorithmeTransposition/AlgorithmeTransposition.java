@@ -39,7 +39,7 @@ public class AlgorithmeTransposition implements Algorithme{
     }
     
     /**
-     * 
+     * Remplie le tableau avec le message 
      * @param message
      * @param cle
      * @return le tableau remplie avec les caracteres
@@ -142,7 +142,7 @@ public class AlgorithmeTransposition implements Algorithme{
     }
 
     /**
-     * 
+     * Chiffre le message
      * @param message
      * @param clesPubliques = null
      * @param clesPrivees
@@ -195,7 +195,7 @@ public class AlgorithmeTransposition implements Algorithme{
     }
 
     /**
-     * 
+     * Dechiffre le message
      * @param message
      * @param clesPubliques = null
      * @param clesPrivees
