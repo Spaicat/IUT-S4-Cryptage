@@ -10,8 +10,8 @@ import crypto.protocoles.ProtocoleCesar;
 import crypto.protocoles.ProtocoleTransposition;
 
 /**
- *
- * @author asus
+ * Main
+ * @author Thibault, Antonia
  */
 public class Crypto_nite {
 
