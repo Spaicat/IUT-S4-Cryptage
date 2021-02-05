@@ -48,7 +48,6 @@ public class AlgorithmeSubstitution implements Algorithme{
             char[] charCrypte = new char[tailleMsg];
             
             
-        
             //On chiffre le message
             for (int i = 0; i < tailleMsg; i++)
             {
@@ -85,7 +84,61 @@ public class AlgorithmeSubstitution implements Algorithme{
 
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        //Message crypté
+        String messageCrypte = "";
+            
+        try{
+            //Alphabet basique
+            char[] tabAlpha = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+            char[] tabCle = new char[26];
+            
+            //Alphabet permuté qui est notre clé
+            Cle clePV = clesPrivees.getCle("cleSubstitution");
+            
+            for(int i = 0; i < tabCle.length;i++){
+                tabCle[i] = clePV.asString().charAt(i);
+            }
+            
+            //Init taille message
+            int tailleMsg = message.asString().length();
+            
+            //Char crypté
+            char[] charCrypte = new char[tailleMsg];
+            
+            
+            //On chiffre le message
+            for (int i = 0; i < tailleMsg; i++)
+            {
+                char c = message.asString().charAt(i);
+                if((int)c < 65 || (int)c > 90){
+                    messageCrypte += c;
+                } 
+                else{
+                    for (int j = 0; j < 26; j++)
+                    {
+                        if (tabCle[j] == message.asString().charAt(i))
+                        {
+                            charCrypte[i] = tabAlpha[j];
+                            c = charCrypte[i];
+                            messageCrypte += c;
+                        }
+
+                    }
+                }
+                
+            }
+        }
+        catch(Exception e){
+            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini");
+        }
+            
+            message = new MessageString(messageCrypte);
+              
+ 
+        
+        return message;
+        
     }
     
 }
