@@ -46,7 +46,7 @@ public class AlgorithmeTransposition implements Algorithme{
     private char[][] remplirTableauChiffrement(Message message,Cle cle)throws ExceptionConversionImpossible{
        
         ByteBuffer b = ByteBuffer.allocate(4) ;
-        b.putInt((cle.asString()+message.asString()).hashCode()) ;
+        b.putInt((cle.asString()+ message.asString()).hashCode()) ;
         this.generateur = new SecureRandom (b.array()) ;
 
         //Initilisation tableau ligne
