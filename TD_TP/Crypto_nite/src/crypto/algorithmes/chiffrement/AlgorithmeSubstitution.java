@@ -53,22 +53,21 @@ public class AlgorithmeSubstitution implements Algorithme{
             for (int i = 0; i < tailleMsg; i++)
             {
                 char c = message.asString().charAt(i);
-                if((int)c < 65 || (int)c > 90){
-                    messageCrypte += c;
-                } 
-                else{
-                    for (int j = 0; j < 26; j++)
+                if((int)c >= 65 || (int)c < 90){
+                    int j = 0;
+                    boolean sortie = false;
+                    while (j < 26 && !sortie)
                     {
                         if (tabAlpha[j] == message.asString().charAt(i))
                         {
                             charCrypte[i] = tabCle[j];
                             c = charCrypte[i];
-                            messageCrypte += c;
+                            sortie = true;
                         }
-
+                        j++;
                     }
                 }
-                
+                messageCrypte += c;
             }
         }
         catch(Exception e){
