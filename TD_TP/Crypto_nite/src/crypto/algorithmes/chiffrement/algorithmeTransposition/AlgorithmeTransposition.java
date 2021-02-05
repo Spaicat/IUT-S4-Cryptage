@@ -6,8 +6,6 @@
 package crypto.algorithmes.chiffrement.algorithmeTransposition;
 
 import crypto.algorithmes.chiffrement.Algorithme;
-import crypto.algorithmes.chiffrement.algorithmeTransposition.ComparateurCouple;
-import crypto.algorithmes.chiffrement.algorithmeTransposition.Couple;
 import crypto.donnees.cles.Cle;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
@@ -187,7 +185,7 @@ public class AlgorithmeTransposition implements Algorithme{
             message = new MessageString(msgFinal);
             
         }catch(Exception e){
-            throw new UnsupportedOperationException("Not supported yet.");
+            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini");
         }
         
         
