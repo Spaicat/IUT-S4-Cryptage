@@ -9,7 +9,6 @@ import crypto.donnees.cles.Cle;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
 import crypto.donnees.messages.MessageString;
-import crypto.exceptions.ExceptionAlgorithmeNonDefini;
 import crypto.exceptions.ExceptionChiffrementImpossible;
 import crypto.exceptions.ExceptionCryptographie;
 
@@ -99,8 +98,8 @@ public class AlgorithmeSubstitution implements Algorithme{
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         
-        //Message crypté
-        String messageCrypte = "";
+        //Message decrypté
+        String messageDecrypte = "";
             
         try{
             //Alphabet basique
@@ -117,11 +116,11 @@ public class AlgorithmeSubstitution implements Algorithme{
             //Init taille message
             int tailleMsg = message.asString().length();
             
-            //Char crypté
-            char[] charCrypte = new char[tailleMsg];
+            //Char decrypté
+            char[] charDecrypte = new char[tailleMsg];
             
             
-            //On chiffre le message
+            //On déchiffre le message
             for (int i = 0; i < tailleMsg; i++)
             {
                 char c = message.asString().charAt(i);
@@ -132,21 +131,21 @@ public class AlgorithmeSubstitution implements Algorithme{
                     {
                         if (tabCle[j] == message.asString().charAt(i))
                         {
-                            charCrypte[i] = tabAlpha[j];
-                            c = charCrypte[i];
+                            charDecrypte[i] = tabAlpha[j];
+                            c = charDecrypte[i];
                             sortie = true;
                         }
                         j++;
                     }
                 }
-                messageCrypte += c;
+                messageDecrypte += c;
             }
         }
         catch(Exception e){
             throw new ExceptionChiffrementImpossible("Déchiffrement impossible");
         }
         
-        message = new MessageString(messageCrypte);
+        message = new MessageString(messageDecrypte);
 
         return message;
         
