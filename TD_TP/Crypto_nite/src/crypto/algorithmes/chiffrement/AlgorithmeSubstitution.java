@@ -52,9 +52,8 @@ public class AlgorithmeSubstitution implements Algorithme{
             //On chiffre le message
             for (int i = 0; i < tailleMsg; i++)
             {
-                char c;
-                if((int)message.asString().charAt(i) < 65 || (int)message.asString().charAt(i) > 90){
-                    c = message.asString().charAt(i);
+                char c = message.asString().charAt(i);
+                if((int)c < 65 || (int)c > 90){
                     messageCrypte += c;
                 } 
                 else{
