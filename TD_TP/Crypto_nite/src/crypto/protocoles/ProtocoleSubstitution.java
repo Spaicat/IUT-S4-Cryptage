@@ -6,8 +6,8 @@
 package crypto.protocoles;
 
 
-import crypto.algorithmes.chiffrement.AlgorithmeVigenere;
-import crypto.algorithmes.generateurdecles.GenerateurDeClesVigenere;
+import crypto.algorithmes.chiffrement.AlgorithmeSubstitution;
+import crypto.algorithmes.generateurdecles.GenerateurDeClesSubstitution;
 import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
 import crypto.donnees.messages.MessageString;
@@ -19,21 +19,21 @@ import crypto.exceptions.ExceptionCryptographie;
  *
  * @author Antonia, Thibault
  */
-public class ProtocoleVigenere implements Protocole{
+public class ProtocoleSubstitution implements Protocole{
 
+    
     @Override
     public void executer() {
-        
         //On crée Alice et Bob
         Personne alice = new Personne("Alice");
         Personne bob = new Personne("Bob");
         
         //On donne à Alice et à Bob deux algorithmes de transposition
-        alice.setAlgorithme(new AlgorithmeVigenere());
-        bob.setAlgorithme(new AlgorithmeVigenere());
+        alice.setAlgorithme(new AlgorithmeSubstitution());
+        bob.setAlgorithme(new AlgorithmeSubstitution());
         
         //On génère une clé privée aléatoire que l’on donne à Alice et à Bob
-        GenerateurDeClesVigenere clePriveeAleatoire = new GenerateurDeClesVigenere(5);
+        GenerateurDeClesSubstitution clePriveeAleatoire = new GenerateurDeClesSubstitution();
         Cles cles = clePriveeAleatoire.genererClePrivee();
         alice.setClesPrivees(cles);
         bob.setClesPrivees(cles);
@@ -62,6 +62,5 @@ public class ProtocoleVigenere implements Protocole{
             e.gerer();
         }
     }
-    
     
 }
