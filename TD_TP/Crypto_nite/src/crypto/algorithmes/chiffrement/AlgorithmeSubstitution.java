@@ -10,6 +10,7 @@ import crypto.donnees.cles.Cles;
 import crypto.donnees.messages.Message;
 import crypto.donnees.messages.MessageString;
 import crypto.exceptions.ExceptionAlgorithmeNonDefini;
+import crypto.exceptions.ExceptionChiffrementImpossible;
 import crypto.exceptions.ExceptionCryptographie;
 
 /**
@@ -23,6 +24,14 @@ public class AlgorithmeSubstitution implements Algorithme{
         return "Algorithme Substitution";
     }
 
+    /**
+     * Chiffre le message
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return Le message chiffré
+     * @throws ExceptionCryptographie 
+     */
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         
@@ -70,17 +79,23 @@ public class AlgorithmeSubstitution implements Algorithme{
             }
         }
         catch(Exception e){
-            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini");
+            throw new ExceptionChiffrementImpossible("Chiffrement Impossible");
         }
-            
-            message = new MessageString(messageCrypte);
-              
- 
         
+        message = new MessageString(messageCrypte);
+
         return message;
         
     }
 
+    /**
+     * Dechiffre le message
+     * @param message
+     * @param clesPubliques
+     * @param clesPrivees
+     * @return Le message déchiffré
+     * @throws ExceptionCryptographie 
+     */
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
         
@@ -110,32 +125,29 @@ public class AlgorithmeSubstitution implements Algorithme{
             for (int i = 0; i < tailleMsg; i++)
             {
                 char c = message.asString().charAt(i);
-                if((int)c < 65 || (int)c > 90){
-                    messageCrypte += c;
-                } 
-                else{
-                    for (int j = 0; j < 26; j++)
+                if((int)c >= 65 || (int)c < 90){
+                    int j = 0;
+                    boolean sortie = false;
+                    while (j < 26 && !sortie)
                     {
                         if (tabCle[j] == message.asString().charAt(i))
                         {
                             charCrypte[i] = tabAlpha[j];
                             c = charCrypte[i];
-                            messageCrypte += c;
+                            sortie = true;
                         }
-
+                        j++;
                     }
                 }
-                
+                messageCrypte += c;
             }
         }
         catch(Exception e){
-            throw new ExceptionAlgorithmeNonDefini("Algorithme non defini");
+            throw new ExceptionChiffrementImpossible("Déchiffrement impossible");
         }
-            
-            message = new MessageString(messageCrypte);
-              
- 
         
+        message = new MessageString(messageCrypte);
+
         return message;
         
     }
