@@ -7,6 +7,7 @@ package crypto;
 
 import crypto.protocoles.Protocole;
 import crypto.protocoles.ProtocoleCesar;
+import crypto.protocoles.ProtocoleSubstitution;
 import crypto.protocoles.ProtocoleTransposition;
 import crypto.protocoles.ProtocoleVigenere;
 
@@ -31,6 +32,11 @@ public class Crypto_nite {
         System.out.println("\nAlgorithme de Vigenère");
         Protocole protoV = new ProtocoleVigenere();
         protoV.executer();
+        
+        System.out.println("\nAlgorithme de Substitution mono-alphabétique");
+        Protocole protoS = new ProtocoleSubstitution();
+        protoV.executer();
+        
     }
     
 }
