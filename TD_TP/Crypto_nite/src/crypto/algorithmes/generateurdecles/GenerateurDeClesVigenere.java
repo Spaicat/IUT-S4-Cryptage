@@ -11,13 +11,17 @@ import java.security.SecureRandom;
 
 /**
  *
- * @author asus
+ * @author Antonia, Thibault
  */
 public class GenerateurDeClesVigenere implements GenerateurDeCles {
     
     //Attribut
     private int taille;
     
+    /**
+     * Constructeur
+     * @param taille de la clé
+     */
     public GenerateurDeClesVigenere(int taille){
         this.taille = taille;
     }
@@ -32,8 +36,8 @@ public class GenerateurDeClesVigenere implements GenerateurDeCles {
     }
 
     /**
-     * 
-     * @return 
+     * Génère des clés privées
+     * @return les clés privées
      */
     @Override
     public Cles genererClePrivee() {
